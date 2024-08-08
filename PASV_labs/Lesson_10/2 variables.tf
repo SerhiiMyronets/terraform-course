@@ -51,10 +51,4 @@ variable "egress_rules" {
   }]
 }
 
-variable "zones_count" {
-  description = "count of zones"
-  type        = number
-  default     = 2
-}
-
 

@@ -6,7 +6,7 @@ locals {
     cidr_blocks = ["0.0.0.0/0"]
   }
   egress_rules = {
-    port        = ["80", "443"],
+    port        = ["22", "80", "443"],
     protocol    = "tcp",
     cidr_blocks = ["0.0.0.0/0"]
   }

@@ -1,2 +1,2 @@
 [all]
-54.198.191.72 ansible_ssh_user=ubuntu ansible_ssh_private_key_file=/Users/serhiimyronets/.aws/ec2_keypair_mac.pem
+54.242.188.115 ansible_ssh_user=ubuntu ansible_ssh_private_key_file=/Users/serhiimyronets/.aws/jenkins_keypair.pem

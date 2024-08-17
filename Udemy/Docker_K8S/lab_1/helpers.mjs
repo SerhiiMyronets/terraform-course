@@ -5,7 +5,7 @@ const connectToDatabase = () => {
     }, 1000);
   });
 
-  return dummyPromise;
+         return dummyPromise;
 };
 
 export default connectToDatabase;

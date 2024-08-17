@@ -1,7 +1,7 @@
 provider "aws" {}
 
 
-variable "name" {
+    variable "name" {
   default = "orest"
 }
 

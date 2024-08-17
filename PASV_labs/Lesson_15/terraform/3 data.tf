@@ -1,37 +1,40 @@
 data "aws_ami" "latest_ubuntu" {
-  owners      = ["099720109477"]
+  owners = ["099720109477"]
   most_recent = true
   filter {
-    name   = "description"
+    name = "description"
     values = ["Canonical, Ubuntu, 24.04 LTS, amd64*"]
   }
 }
 data "aws_ec2_instance_types" "c6a_large" {
   filter {
-    name   = "instance-type"
+    name = "instance-type"
     values = ["c6a.large"]
   }
+}
+resource "aws_instance" "lold_load_test" {
+  
 }
 data "aws_vpc" "defaul" {
   default = true
 }
 data "aws_subnets" "default" {
   filter {
-    name   = "vpc-id"
+    name = "vpc-id"
     values = [data.aws_vpc.defaul.id]
   }
   filter {
-    name   = "default-for-az"
+    name = "default-for-az"
     values = [true]
   }
   filter {
-    name   = "state"
+    name = "state"
     values = ["available"]
   }
 }
 data "aws_subnet" "subnets_details" {
   for_each = toset(data.aws_subnets.default.ids)
-  id       = each.value
+  id = each.value
 }
 locals {
   all_subnets = data.aws_subnets.default.ids
@@ -42,6 +45,6 @@ locals {
   ]
 }
 data "aws_subnet" "default" {
-  for_each = { for index, subnetid in data.aws_subnets.default.ids : index => subnetid }
+  for_each = {for index, subnetid in data.aws_subnets.default.ids : index => subnetid}
   id       = each.value
 }
